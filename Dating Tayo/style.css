@@ -1,0 +1,229 @@
+ * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f8fafc;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #1e293b;
+    }
+
+    .calculator {
+      background: #ffffff;
+      padding: 32px;
+      border-radius: 20px;
+      box-shadow: 
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      width: 450px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .display-container {
+      margin-bottom: 24px;
+    }
+
+    .display {
+      width: 100%;
+      height: 100px;
+      font-size: 28px;
+      font-weight: 300;
+      text-align: right;
+      padding: 24px 20px;
+      border-radius: 12px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      color: #1e293b;
+      overflow: hidden;
+      white-space: nowrap;
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+      letter-spacing: -0.5px;
+    }
+
+    .keys {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    button {
+      padding: 20px;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+      background: #f1f5f9;
+      color: #475569;
+      transition: all 0.15s ease;
+      min-height: 64px;
+      border: 1px solid #e2e8f0;
+    }
+
+    button:hover {
+      background: #e2e8f0;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    button:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    .number {
+      background: #ffffff;
+      color: #1e293b;
+      font-weight: 400;
+    }
+
+    .number:hover {
+      background: #f8fafc;
+    }
+
+    .operator {
+      background: #64748b;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .operator:hover {
+      background: #475569;
+    }
+
+    .equals {
+      background: #0f172a;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .equals:hover {
+      background: #1e293b;
+    }
+
+    .clear {
+      background: #ef4444;
+      color: #ffffff;
+    }
+
+    .clear:hover {
+      background: #dc2626;
+    }
+
+    /* Lyric mode - keep calculator look, right aligned like results */
+    .lyric-mode .display {
+      text-align: right;
+      font-size: 20px;
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+      font-weight: 300;
+      color: #1e293b;
+      letter-spacing: -0.5px;
+    }
+
+    .typing-cursor::after {
+      content: '|';
+      color: #1e293b;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    /* Audio controls (hidden but functional) */
+    audio {
+      display: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .calculator {
+        width: 380px;
+        padding: 24px;
+      }
+      
+      button {
+        padding: 18px;
+        font-size: 16px;
+        min-height: 58px;
+      }
+      
+      .display {
+        height: 85px;
+        font-size: 24px;
+        padding: 20px 16px;
+      }
+    }
+
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #0f172a;
+        color: #e2e8f0;
+      }
+
+      .calculator {
+        background: #1e293b;
+        border-color: #334155;
+        box-shadow: 
+          0 4px 6px -1px rgba(0, 0, 0, 0.3),
+          0 2px 4px -1px rgba(0, 0, 0, 0.2);
+      }
+
+      .display {
+        background: #0f172a;
+        border-color: #334155;
+        color: #f1f5f9;
+      }
+
+      button {
+        background: #334155;
+        color: #cbd5e1;
+        border-color: #475569;
+      }
+
+      button:hover {
+        background: #475569;
+      }
+
+      .number {
+        background: #1e293b;
+        color: #f1f5f9;
+      }
+
+      .number:hover {
+        background: #334155;
+      }
+
+      .operator {
+        background: #64748b;
+        color: #ffffff;
+      }
+
+      .operator:hover {
+        background: #475569;
+      }
+
+      .equals {
+        background: #f8fafc;
+        color: #0f172a;
+      }
+
+      .equals:hover {
+        background: #e2e8f0;
+      }
+
+      .lyric-mode .display {
+        color: #f1f5f9;
+      }
+
+      .typing-cursor::after {
+        color: #f1f5f9;
+      }
+    }
